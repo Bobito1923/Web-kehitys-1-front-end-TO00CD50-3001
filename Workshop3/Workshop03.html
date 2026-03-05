@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="utf-8">
+    <title>Työpaja 3</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="ws3">
+    <h1>Työpaja 3: JavaScript-tapahtumat</h1>
+    <hr>
+    <p>
+        Tässä harjoituksessa harjoittelemme JavaScript‑tapahtumien käyttöä.
+        Käytä luentomateriaalia apuna ja tallenna tekemäsi koodit myöhempää käyttöä varten.
+    </p>
+    <hr>
+
+    <!-- Harjoitus 1 -->
+    <h2>Harjoitus 1</h2>
+    <p>Alla näet kaksi painiketta. Lisää näihin onClick‑tapahtumat.</p>
+
+    <p>
+        <button id="btnAlert">Napsauta minua</button>
+        <button id="btnTable">Näytä taulukko</button>
+    </p>
+
+    <div id="taulukonPaikka"></div>
+
+    <ol>
+        <li>Ensimmäisen painikkeen tulee avata alert‑ikkuna: “Klikkasit minua!”.</li>
+        <li>Toisen painikkeen tulee kutsua kirjoittamaasi funktiota nimeltä <code>showTable()</code>, joka tulostaa HTML‑taulukon sivulle.</li>
+        <li>Rakenna taulukko template stringin avulla (backtick‑merkeillä <code>`</code>).</li>
+        <li>Tee sarakkeiden sisältö muuttujista, esim. <code>${nimi}</code> ja <code>${tehtava}</code>.</li>
+        <li>Kun taulukko toimii, etsi sijoituspaikka <code>document.querySelector()</code>‑funktiolla ja lisää se elementtiin, jonka id on <code>taulukonPaikka</code>.</li>
+    </ol>
+
+    <table id="example" class="display" border="1">
+        <thead>
+            <tr>
+                <th>Nimi</th>
+                <th>Tehtävä</th>
+                <th>Palkka</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>$170,750</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Harjoitus 2 -->
+    <h2>Harjoitus 2</h2>
+    <ul>
+        <li>Lisää <code>mouseover</code>-tapahtuma otsikkoon “Harjoitus 2”. Tulosta konsoliin: <em>“Stepped over me with a mouse!”</em></li>
+        <li>Lisää <code>click</code>-tapahtuma “Harjoitus 1” ‑otsikkoon dynaamisesti <code>addEventListener()</code>-metodilla. Otsikon värin tulee muuttua punaiseksi ja sisällöksi “Bye bye mouse!”.</li>
+        <h2 id="Har1">Harjoitus 1</h2>
+        <h2 id="Har2">Harjoitus 2</h2>
+    </ul>
+    <p>Vinkki: käytä <code>document.querySelector()</code>‑funktiota ja muuta sisältöä <code>innerHTML</code>‑kentällä.</p>
+
+    <hr>
+
+    <!-- Harjoitus 3 -->
+    <h2>Harjoitus 3</h2>
+    <p>
+        Rakenna yksinkertainen “pikapalaute”‑lomake, jossa harjoittelet DOM‑käsittelyä ja
+        useita eri tapahtumankuuntelijoita.
+    </p>
+
+    <ul>
+        <li>Lisää <strong>focus</strong>-tapahtuma <code>textarea</code>-elementtiin, joka näyttää viestin <code>#status</code>-elementissä ja muuttaa halutessasi taustaväriä.</li>
+        <li>Lisää <strong>blur</strong>-tapahtuma, joka tyhjentää viestin ja palauttaa tyylit.</li>
+        <li>Lisää <strong>input</strong>-kuuntelija:
+            <ul>
+                <li>päivitä merkkimäärä <code>#charcount</code>-elementtiin (muotoa X/200)</li>
+                <li>näytä punaisena, jos merkkiraja ylittyy</li>
+                <li>päivitä esikatselu <code>#preview</code>-elementtiin</li>
+                <li>deaktivoi nappi, jos merkkimäärä on < 10 tai > 200</li>
+            </ul>
+        </li>
+        <li>Lisää <strong>keydown</strong>, joka lähettää lomakkeen <em>Ctrl/Cmd + Enter</em> -näppäinyhdistelmällä.</li>
+        <li>Lisää <strong>submit</strong>-tapahtuma:
+            <ul>
+                <li>käytä <code>event.preventDefault()</code></li>
+                <li>tarkista pituus 10–200 merkkiä</li>
+                <li>näytä virheet <code>#status</code>-elementissä</li>
+                <li>onnistuneessa lähetyksessä tyhjennä kenttä ja näytä “Kiitos palautteesta!”</li>
+            </ul>
+        </li>
+        <li><strong>Bonus:</strong>
+            <ul>
+                <li>edistymispalkki</li>
+                <li>kopioi esikatselu napista</li>
+                <li>tallenna palaute <code>localStorage</code>en</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Pikapalaute-lomake</h3>
+
+    <form id="feedbackForm" novalidate>
+        <label for="feedback">Palaute (min 10 merkkiä, max 200):</label><br>
+        <textarea id="feedback" placeholder="Kirjoita palaute..." rows="5"></textarea><br>
+
+        <div style="margin: 4px 0;">
+            <span id="charcount">0/200</span>
+            <span id="status" aria-live="polite" style="margin-left: 8px; color: #666;"></span>
+        </div>
+
+        <button id="sendBtn" type="submit" disabled>Lähetä</button>
+    </form>
+
+    <h3>Esikatselu</h3>
+    <div id="preview" style="border: 1px solid #ccc; padding: 8px; min-height: 40px; background: #fafafa;">
+        (Esikatselu tulee tähän)
+    </div>
+
+    <hr>
+
+    <!-- Harjoitus 4 -->
+    <h2>Harjoitus 4</h2>
+
+    <h3>1. Google Maps ja koordinaatit</h3>
+    <p>
+        Google Mapsin voi avata suoraan tiettyyn sijaintiin antamalla koordinaatit URL‑osoitteessa:
+    </p>
+    <code>https://www.google.com/maps?q=60.1699,24.9384</code>
+
+    <hr>
+
+    <h3>2. Käyttäjän sijainnin selvittäminen (Geolocation API)</h3>
+    <p>
+        Sijainti voidaan hakea JavaScriptin <strong>Geolocation API</strong>n avulla.
+    </p>
+
+    <pre>
+navigator.geolocation.getCurrentPosition(
+  (position) => {
+    console.log("Latitude:", position.coords.latitude);
+    console.log("Longitude:", position.coords.longitude);
+  },
+  (error) => {
+    console.log("Sijaintia ei voitu hakea:", error.message);
+  }
+);
+    </pre>
+
+    <p>Kun koordinaatit on saatu, voit ohjata käyttäjän Google Mapsiin:</p>
+
+    <pre>
+const url = `https://www.google.com/maps?q=${lat},${lon}`;
+window.location.href = url;
+    </pre>
+
+    <p><em>Huom: sijainnin hakeminen toimii yleensä vain HTTPS-sivuilla.</em></p>
+
+    <hr>
+
+    <!-- Harjoitus 5 -->
+    <h2>Harjoitus 5</h2>
+
+    <h3>Näppäinpainalluksen tunnistaminen</h3>
+
+    <p>
+        Tee ohjelma, joka näyttää viimeksi painetun näppäimen ja näppäimen koodin.
+    </p>
+
+    <div id="keybox" style="padding: 20px; border: 1px solid #ccc; font-size: 1.2em;">
+        Paina mitä tahansa näppäintä...
+    </div>
+
+    <p id="keyinfo"></p>
+
+    <ul>
+        <li>Lisää <code>keydown</code>-kuuntelija dokumentille.</li>
+        <li>Tulosta tapahtuma ensiksi konsoliin.</li>
+        <li>Näytä:
+            <ul>
+                <li>painettu näppäin (<code>event.key</code>)</li>
+                <li>näppäinkoodi (<code>event.code</code>)</li>
+            </ul>
+            elementissä <code>#keyinfo</code>.
+        </li>
+        <li>
+            Muuta <code>#keybox</code>-elementin sisältö siten, että se näyttää painetun näppäimen isolla fontilla.
+        </li>
+    </ul>
+
+    <h4>Bonus-tehtävä</h4>
+    <ul>
+        <li>Vaihda taustaväri eri näppäinten mukaan.</li>
+        <li>Lisää laskuri, joka kertoo näppäinpainallusten määrän.</li>
+        <li>Näytä jos Shift, Ctrl tai Alt on painettuna.</li>
+    </ul>
+    <script>
+        //harjoitus 1
+        const btnAlert = document.querySelector("#btnAlert")
+        const btnTable = document.querySelector("#btnTable")
+        btnAlert.addEventListener("click", function(){
+            alert("Klikkasit minua!")
+        })
+
+        btnTable.addEventListener("click", showTable)
+
+        function showTable() {
+            
+            let nimi = "Tiger Nixon"
+            let tehtava = "System Architect"
+            let palkka = "320,800"
+
+            let table = `
+            <table border="1">
+        <tr>
+            <th>Nimi</th>
+            <th>Tehtävä</th>
+            <th>Palkka</th>
+        </tr>
+        <tr>
+            <td>${nimi}</td>
+            <td>${tehtava}</td>
+            <td>${palkka}</td>
+        </tr>
+    </table>
+    `
+
+    document.querySelector("#taulukonPaikka").innerHTML = table
+}
+    //harjoitus 2
+        const Har1 = document.querySelector("#Har1")
+        const Har2 = document.querySelector("#Har2")
+        Har1.addEventListener("mouseover", function(){
+            console.log("Stepped over me with a mouse")
+        })
+        Har2.addEventListener("click", function(){
+            Har2.style.color = "red"
+            Har2.innerHTML = "Bye bye mouse!"
+        })
+    
+    //harjoitus 3
+        const textareaFeedback = document.querySelector("#feedback");
+        const charCount = document.querySelector("#charcount");
+        const status = document.querySelector("#status");
+        const preview = document.querySelector("#preview");
+        const sendBtn = document.querySelector("#sendBtn");
+        const feedbackForm = document.querySelector("#feedbackForm");
+
+
+        textareaFeedback.addEventListener("focus", function() {
+            status.innerHTML = "Voit kirjoittaa palautetta";
+            textareaFeedback.style.background = "#eef";
+        });
+
+
+        textareaFeedback.addEventListener("blur", function() {
+            status.innerHTML = "";
+            textareaFeedback.style.background = "";
+        });
+
+
+        textareaFeedback.addEventListener("input", function() {
+            const len = textareaFeedback.value.length;
+            charCount.innerHTML = `${len}/200`;
+            preview.innerHTML = textareaFeedback.value;
+
+            if(len < 10 || len > 200) {
+                charCount.style.color = "red";
+                sendBtn.disabled = true;
+                } else {
+                charCount.style.color = "black";
+                sendBtn.disabled = false;
+                }
+            });
+
+
+        textareaFeedback.addEventListener("keydown", function(e) {
+            if((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+            feedbackForm.dispatchEvent(new Event("submit", {cancelable: true}));
+            }
+        });
+
+
+        feedbackForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const len = textareaFeedback.value.length;
+
+            if(len < 10 || len > 200) {
+                status.innerHTML = "Virhe: Palaute pitää olla 10–200 merkkiä!";
+                status.style.color = "red";
+            } else {
+            status.innerHTML = "Kiitos palautteesta!";
+            status.style.color = "green";
+
+        textareaFeedback.value = "";
+            preview.innerHTML = "(Esikatselu tulee tähän)";
+            charCount.innerHTML = "0/200";
+            sendBtn.disabled = true;
+            }
+        });
+    //harjoitus 4
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                console.log("Latitude:", lat);
+                console.log("Longitude:", lon);
+
+                const url = `https://www.google.com/maps?q=${lat},${lon}`;
+                window.location.href = url;
+
+                },
+            (error) => {
+                console.log("Sijaintia ei voitu hakea:", error.message);
+                }
+        );
+
+    //harjoitus 5
+        const keyBox = document.querySelector("#keybox")
+        const keyInfo = document.querySelector("#keyinfo")
+        let counter = 0;
+
+        document.addEventListener("keydown", function(event){
+            console.log(event);
+            counter++
+            
+            keyBox.innerHTML = event.key;
+
+            keyInfo.innerHTML = `
+            Key: ${event.key} <br>
+            Code: ${event.code} <br>
+            Painalluksia: ${counter} <br>
+            Shift: ${event.shiftKey} |
+            Ctrl: ${event.ctrlKey} |
+            Alt: ${event.altKey}
+        `;
+
+        if(event.key.toLowerCase() === "r")  {
+            document.body.style.background = "red"
+        }
+        else if(event.key.toLowerCase() === "g") {
+            document.body.style.background = "green"
+        }
+        else if(event.key.toLowerCase() === "b") {
+            document.body.style.background = "blue"
+        }
+    })
+    </script> 
+</body>
+</html>
