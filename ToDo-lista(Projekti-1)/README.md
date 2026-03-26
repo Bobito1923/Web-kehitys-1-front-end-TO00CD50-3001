@@ -39,7 +39,7 @@ tallentaa tehtävät selaimeen (localStorage)
 Sovelluksessa ei ole vielä suodatustoimintoa
  ### Kuvakaappaukset
   ___
-![esimerkki tehtävien lisäämisestä] 
+![esimerkki tehtävien lisäämisestä](https://github.com/Bobito1923/Web-kehitys-1-front-end-TO00CD50-3001/blob/fbb30544c07b4516e594b3a4d74bd4f9f19002d3/ToDo-lista(Projekti-1)/ToDo%20-list%20screenshot.png)
 
  ### Asennus
   ___
@@ -64,3 +64,4 @@ https://www.w3schools.com - **W3Schools**
 *Tältä sivustolta löydän paljon apua ja dokumentaatiota kaikkiin JavaScript-ongelmiini*
 
  ## Lisenssi
+MIT-lisenssi @ kiryl.kirychenka20@gmail.com
