@@ -19,6 +19,7 @@ Ehkä myöhemmin yritän päivittää projektia itselleni lisäämällä kirjast
  Yleisesti ottaen antaisin itselleni jotain arvosanaksi noin 8/10. Tein projektin hyvin, mutta en lisännyt mitään vau-efektiä aiheuttavaa.
 
  ## Palaute opettajalle kurssista sekä itse opetuksesta tähän saakka
+Työpajat ja niihin annetut tehtävät auttoivat paljon, eikä projektin tekeminen ollut iso ongelma, koska opettaja kysyi aina, miten työ sujuu, joten mielestäni opettaja teki kaiken hyvin.
 
  ## Sisällysluettelo:
  ### Tietoja sovelluksesta
@@ -38,13 +39,13 @@ tallentaa tehtävät selaimeen (localStorage)
 Sovelluksessa ei ole vielä suodatustoimintoa
  ### Kuvakaappaukset
   ___
-
+![esimerkki tehtävien lisäämisestä] 
 
  ### Asennus
   ___
 Lataa koko kansio ToDo-lista(Projekti-1) GitHubista
 
-Lataa koko kansio ToDo-lista(Projekti-1)
+Avaa tiedosto index.html selaimessa
  ### Teknologiat
  ___
 HTML – sivun rakenne
