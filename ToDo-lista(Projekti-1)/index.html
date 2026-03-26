@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo-list App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="App">
+        <div class="upper-container">
+            <h1>My Todo List</h1>
+            <div id="task-counter">0 / 0</div>
+        </div>
+        <div class="container">
+            <form id="todo-form">
+                <input type="text" id="task-input" placeholder="Enter a task">
+                <button type="submit">Add</button>
+            </form>
+            <p id="error-msg"></p>
+            <ul id="task-list"></ul>
+            <div class="bottom-buttons">
+                <button type="button" id="delete-selected">Delete Selected</button>
+                <button type="button" id="clear-all">Clear All</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
